@@ -6,7 +6,9 @@ This repository accompanies an article on how I solved a thread conflict problem
 
 QObject::startTimer: Timers can only be used with threads started with QThread
 
-The code in this repository are examples to reproduce and solve the problem. It was developed and tested on MacOS, may need to be adjusted for Windows or Linux.
+The code in this repository are examples to reproduce and solve the problem. It was developed and tested on MacOS, may need to be modified for Windows or Linux.
+
+The companion article is published [here](https://www.linkedin.com/pulse/custom-qt-signal-resolves-pyqtpyinput-thread-conflict-jeremy-yabrow-abtqc/)
 
 ## Code
 
