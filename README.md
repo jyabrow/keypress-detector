@@ -1,5 +1,5 @@
 # keypress-detector
-Demo code to illustrate pyqt/pynput thread conflict, and solution
+Demo code to illustrate pyqt/pynput thread conflict, and solution. Provides robust example code module to detect MacOS keypresses, including CMD and CTRL modified keys.
 
 ## Introduction
 This repository accompanies an article on how I solved a thread conflict problem when working on an PyQt app that used pynput for global keypress events, along with a QTimer for asynchronous delays. See the article for a full explanation, but the basic problem was that when the pynput event handler attempts to call a PyQt method that in turn invokes a QTimer, the thread immediately halts and issues the message:
