@@ -69,26 +69,26 @@ class Main(QtWidgets.QMainWindow):
         self.ks_callback = ks_callback
 
         def on_press(key):
-            #print(f"DEBUG: on_press(), key={key}")
             try:
                 input_key = self.key_modpfx + str(key.char)
                 self.ks_callback(input_key)
             except AttributeError:
                 # Note: handle cmd, ctlr modifiers here
-                if key == keyboard.Key.ctrl:
+                if key in (keyboard.Key.ctrl, keyboard.Key.ctrl_r):
                     self.key_modpfx = "ctrl-"
-                elif key == keyboard.Key.cmd:
+                elif key in (keyboard.Key.cmd, keyboard.Key.cmd_r):
                     self.key_modpfx = "cmd-"
                 elif key in (keyboard.Key.shift, keyboard.Key.caps_lock):
                     # Ignore these, they're handled by MacOS
                     pass
                 else:
-                    self.ks_callback(f"{key}")
+                    key_str = str(key).removeprefix("Key.")
+                    self.ks_callback(f"{self.key_modpfx+key_str}")
 
         def on_release(key):
-            if key == keyboard.Key.ctrl:
+            if key in (keyboard.Key.ctrl, keyboard.Key.ctrl_r):
                 self.key_modpfx = ''
-            elif key == keyboard.Key.cmd:
+            elif key in (keyboard.Key.cmd, keyboard.Key.cmd_r):
                 self.key_modpfx = ''
 
         self.listener = keyboard.Listener(
