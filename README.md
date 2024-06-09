@@ -26,8 +26,8 @@ The code examples should be easy to run, just open a MacOS terminal shell, clone
 % git clone git@github.com:jyabrow/keypress-detector.git
 % cd keypress-detector
 % python -m venv venv`
-% which python # (make sure python path is set to ./venv/...)
 % source venv/bin/activate
+% which python # (make sure python path is set to ./venv/...)
 % pip install PySide6
 % pip install pynput
 % python keypress-detector-problem.py
